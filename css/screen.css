@@ -16,10 +16,33 @@
 
 :root {
   /* CSS variables here */
-  --global-text-color: #20223a;
-  --global-background-color: #F5F6FA;
-  --global-selection-color: #3385FF;
-  --global-link-color: #3385FF;
+  --global-color-primary-400: #4F95FF;
+  --global-color-primary-500: #3385FF;
+  --global-color-primary-600: #2E77E6;
+
+  --global-color-neutral-050: #F5F6FA;
+  --global-color-neutral-100: #E2E3E7; 
+  --global-color-neutral-200: #CACCD4;
+  --global-color-neutral-300: #B5B6C0;
+  --global-color-neutral-400: #A0A1AD;
+  --global-color-neutral-500: #8B8C9A;
+  --global-color-neutral-600: #757787;
+  --global-color-neutral-700: #606274;
+  --global-color-neutral-800: #4B4C60;
+  --global-color-neutral-900: #35374D;
+  --global-color-neutral-950: #20223A;
+
+  --global-baseline: .5rem; /* = 8px */
+  --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
+
+  --global-whitespace-xs: calc(var(--global-baseline) / 2); /* = 4px */
+  --global-whitespace-sm: var(--global-baseline); /* = 8px */
+  --global-whitespace-md: calc(var(--global-baseline) * 2); /* = 16px */
+  --global-whitespace-lg: calc(var(--global-baseline) * 4); /* = 32px */   
+  --global-whitespace-xl: calc(var(--global-whitespace-md) * 3); /* = 48px */    
+  --global-whitespace-xxl: calc(var(--global-whitespace-lg) * 2);   
+
+  accent-color: hotpink;
 }
 
 /*---------------------------------------/*
@@ -55,12 +78,12 @@ html {
   font-size: 100%;
   line-height: 1.5;
   font-family: "Inter Web", Helvetica, arial, sans-serif;
-  color: var(--global-text-color);
+  color: var(--global-color-neutral-950);
   scroll-behavior: smooth;
   /* anti aliasing */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--global-background-color);
+  background-color: var(--global-color-neutral-050);
 }
 
 /*
@@ -68,7 +91,7 @@ html {
 */
 
 ::selection {
-  background: var(--global-selection-color);
+  background: var(--global-color-primary-500);
   color: white;
 }
 
@@ -82,21 +105,21 @@ h1 {
   font-size: 2.25rem;
   font-weight: 700;
   line-height: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--global-whitespace);
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 700;
   line-height: 2.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--global-whitespace);
 }
 
 h3 {
   font-weight: 700;
   font-size: 1.125rem;
-  line-height: 1.5rem;
-  margin-bottom: 1.5rem;
+  line-height: var(--global-whitespace);
+  margin-bottom: var(--global-whitespace);
 }
 
 h4,
@@ -104,8 +127,8 @@ h5,
 h6 {
   font-weight: 700;
   font-size: 1rem;
-  line-height: 1.5rem;
-  margin-bottom: 1.5rem;
+  line-height: var(--global-whitespace);
+  margin-bottom: var(--global-whitespace);
 }
 
 p,
@@ -115,12 +138,12 @@ dl,
 table,
 address,
 figure {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--global-whitespace);
 }
 
 ul,
 ol {
-  margin-left: 1.5rem;
+  margin-left: var(--global-whitespace);
 }
 
 li ul,
@@ -132,7 +155,7 @@ blockquote {
   font-style: italic;
   font-size: 1.375rem;
   line-height: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--global-whitespace);
 }
 
 figcaption {
@@ -146,16 +169,16 @@ hr {
   border: 0;
   height: 1px;
   background: #e3e7e8;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--global-whitespace);
 }
 
 a {
-  color: var(--global-link-color);
+  color: var(--global-color-primary-500);
   transition: all 0.1s ease-in-out;
 }
 
 a:visited {
-  color: #008fcc;
+  color: var(--global-color-primary-500);
 }
 
 a:hover {
@@ -180,7 +203,7 @@ label{
     Creates a horizontal row with padding
 */
 .o-row {
-  padding: 1.5rem 1.5rem 0;
+  padding: var(--global-whitespace) var(--global-whitespace) 0;
   display: flow-root;
 }
 
@@ -348,8 +371,14 @@ label{
     ---
     Component description
 */
+.c-login{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
 .c-logo{
-  height: 1.5rem;
+  height: var(--global-whitespace);
   display: flex;
   justify-content: center;
 }
@@ -358,10 +387,10 @@ label{
   display: block;
 }
 .c-logo__path--1{
-  fill: #20223A;
+  fill: var(--global-color-neutral-950);
 }
 .c-logo__path--2{
-  fill: #3385FF;
+  fill: var(--global-color-primary-500);
 }
 .c-logo__path--3{
   fill: #1B4186
@@ -378,9 +407,9 @@ label{
   width: 100%;
   color: inherit;
   font: inherit;
-  border: 1px solid #E2E3E7;
+  border: 1px solid var(--global-color-neutral-100);
   border-radius: 3px;
-  line-height: 1.5rem;
+  line-height: var(--global-whitespace);
   padding: calc(.75rem - 1px) 1rem;
   /* -1 pixel voor de border top en bottom
   kotje is niet exact 48px, maar zal waarschijnlijk aan browser ofso liggen */
@@ -388,20 +417,64 @@ label{
   /* als je outline om none zet, moet je een alternatief zoeken want zo kunnen we niet zien welk input veld geselecteerd is*/
 }
 .c-input:focus{
-  border-color: #3385FF;
+  border-color: var(--global-color-primary-500);
   box-shadow: 0 0 0 3px #3385FF4d;
 }
 
 .c-button{
   width: 100%;
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: var(--global-whitespace);
   padding: .875rem 0 .625rem;
-  background-color: #3385FF;
-  border: 1px solid #2E77E6;
+  background-color: var(--global-color-primary-500);
+  border: 1px solid var(--global-color-primary-600);
   border-radius: 3px;
   color: white;
   font-weight: 600;
+
+  &:hover{
+    background-color: var(--global-color-primary-400);
+  }
+}
+
+.c-card{
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.c-card__header{
+  padding: 3rem 3rem 0;
+}
+
+.c-card__title{
+  font-size: 1.125rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.c-card__body{
+  padding: 2rem;
+
+  @media (width > 32rem){
+    padding: 3rem;
+  }
+}
+
+.c-card__password{
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.c-card__footer{
+  border-top: 1px solid var(--global-color-neutral-100);
+  padding: var(--global-whitespace);
+  text-align: center;
+
+  & > p{
+    margin-bottom: 0;
+  }
 }
 
 /*---------------------------------------/*
@@ -412,6 +485,10 @@ label{
     ---
     max-width utility classes
 */
+.u-max-width-xs{
+  max-width: 27rem;
+}
+
 .u-max-width-s {
   max-width: 37.5rem;
 }
